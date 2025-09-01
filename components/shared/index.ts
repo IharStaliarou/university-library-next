@@ -4,3 +4,5 @@ export { BookOverview } from './BookOverview';
 export { BookCover } from './BookCover';
 export { BookCoverSvg } from './BookCoverSvg';
 export { BookCard } from './BookCard';
+export { AuthForm } from './AuthForm';
+export { ImageUpload } from './ImageUpload';
