@@ -1,8 +1,14 @@
-import { Button } from '@/components/ui/button';
+import { BookList, BookOverview } from '@/components/shared';
+import { sampleBooks } from '@/constants';
 
 const Home = () => (
   <>
-    <Button>Button</Button>
+    <BookOverview {...sampleBooks[0]} />
+    <BookList
+      title='Latest books'
+      books={sampleBooks}
+      containerClassName='mt-28'
+    />
   </>
 );
 

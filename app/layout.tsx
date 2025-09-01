@@ -1,21 +1,44 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans, Bebas_Neue } from 'next/font/google';
-
-import './globals.css';
 import { ReactNode } from 'react';
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
-  variable: '--font-ibm-plex-sans',
-  weight: ['400', '500', '600', '700'],
-  style: 'normal',
+import { IBM_Plex_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
+import './globals.css';
+
+const ibmPlexSans = localFont({
+  src: [
+    {
+      path: './fonts/IBMPlexSans-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/IBMPlexSans-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/IBMPlexSans-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/IBMPlexSans-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
 });
 
-const bebasNeue = Bebas_Neue({
-  subsets: ['latin'],
-  variable: '--font-bebas-neue',
-  weight: '400',
-  style: 'normal',
+const bebasNeue = localFont({
+  src: [
+    {
+      path: './fonts/BebasNeue-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--bebas-neue',
 });
 
 export const metadata: Metadata = {
