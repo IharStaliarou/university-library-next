@@ -1,7 +1,5 @@
 import { BookList, BookOverview } from '@/components/shared';
 import { sampleBooks } from '@/constants';
-import { db } from '@/database/drizzle';
-import { users } from '@/database/schema';
 
 const Home = async () => {
   return (
