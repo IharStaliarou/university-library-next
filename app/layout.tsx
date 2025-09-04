@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-import { IBM_Plex_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Toaster } from 'sonner';
+import { auth } from '@/auth';
+import { SessionProvider } from 'next-auth/react';
 
 const ibmPlexSans = localFont({
   src: [
@@ -47,15 +48,19 @@ export const metadata: Metadata = {
   description: 'Your world of books',
 };
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout = async ({ children }: { children: ReactNode }) => {
+  const session = await auth();
+
   return (
     <html lang='en'>
-      <body
-        className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
+      <SessionProvider session={session}>
+        <body
+          className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 };
