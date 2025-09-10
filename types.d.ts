@@ -21,3 +21,16 @@ export interface IAuthCredentials {
   universityId: number;
   universityCard: string;
 }
+
+export interface IBookParams {
+  title: string;
+  author: string;
+  genre: string;
+  rating: number;
+  totalCopies: number;
+  description: string;
+  coverColor: string;
+  coverUrl: string;
+  videoUrl: string;
+  summary: string;
+}
