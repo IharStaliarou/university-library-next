@@ -6,3 +6,4 @@ export { BookCoverSvg } from './BookCoverSvg';
 export { BookCard } from './BookCard';
 export { AuthForm } from './AuthForm';
 export { FileUpload } from './FileUpload';
+export { BookVideo } from './BookVideo';

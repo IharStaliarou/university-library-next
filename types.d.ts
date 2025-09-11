@@ -1,5 +1,5 @@
 export interface IBook {
-  id: number;
+  id: string;
   title: string;
   author: string;
   genre: string;
@@ -11,7 +11,7 @@ export interface IBook {
   coverUrl: string;
   videoUrl: string;
   summary: string;
-  isLoanedBook?: boolean;
+  createdAt: Date | null;
 }
 
 export interface IAuthCredentials {

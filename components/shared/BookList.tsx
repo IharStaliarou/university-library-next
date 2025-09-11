@@ -9,6 +9,7 @@ interface IProps {
 }
 
 export const BookList = ({ title, books, containerClassName }: IProps) => {
+  if (books.length < 2) return;
   return (
     <section className={containerClassName}>
       <h2 className='font-bebas-neue text-4xl text-lime-100'>{title}</h2>

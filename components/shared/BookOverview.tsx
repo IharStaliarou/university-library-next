@@ -4,6 +4,10 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { BookCover } from './BookCover';
 
+interface IProps extends IBook {
+  userId: string;
+}
+
 export const BookOverview = ({
   id,
   title,
@@ -15,11 +19,8 @@ export const BookOverview = ({
   description,
   coverColor,
   coverUrl,
-  videoUrl,
-  summary,
-  isLoanedBook,
-}: IBook) => {
-  console.log(coverUrl);
+  userId,
+}: IProps) => {
   return (
     <section className='book-overview'>
       <div className='flex flex-1 flex-col gap-5'>

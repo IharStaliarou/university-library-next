@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { IKContext, IKImage, IKUpload, IKVideo } from 'imagekitio-react';
+import { ImageKitProvider, IKImage, IKUpload, IKVideo } from 'imagekitio-next';
 import Image from 'next/image';
 import { toast } from 'sonner';
 
@@ -106,7 +106,7 @@ export const FileUpload = ({
   };
 
   return (
-    <IKContext
+    <ImageKitProvider
       urlEndpoint={urlEndpoint}
       publicKey={publicKey}
       authenticator={authenticator}
@@ -182,6 +182,6 @@ export const FileUpload = ({
             className='w-full h-96 rounded-xl'
           />
         ) : null)}
-    </IKContext>
+    </ImageKitProvider>
   );
 };
