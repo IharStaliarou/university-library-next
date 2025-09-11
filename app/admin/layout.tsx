@@ -5,7 +5,8 @@ import { eq } from 'drizzle-orm';
 import { auth } from '@/auth';
 import { db } from '@/database/drizzle';
 import { users } from '@/database/schema';
-import { Header, Sidebar } from '@/components/admin';
+import Sidebar from '@/components/admin/shared/Sidebar';
+import Header from '@/components/admin/shared/Header';
 import '@/styles/admin.css';
 
 const Layout = async ({ children }: { children: ReactNode }) => {

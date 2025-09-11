@@ -1,6 +1,6 @@
 'use client';
 
-import { AuthForm } from '@/components/shared';
+import AuthForm from '@/components/shared/AuthForm';
 import { signUp } from '@/lib/actions/auth';
 import { signUpSchema } from '@/lib/validation';
 import React from 'react';

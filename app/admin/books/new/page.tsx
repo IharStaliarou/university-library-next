@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { BookForm } from '@/components/admin';
+import BookForm from '@/components/admin/shared/forms/BookForm';
 import { Button } from '@/components/ui/button';
 
 const Page = () => {

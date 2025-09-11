@@ -1,10 +1,17 @@
-import { signOut } from '@/auth';
-import { BookList } from '@/components/shared';
 import { Button } from '@/components/ui/button';
-import { sampleBooks } from '@/constants';
-import React from 'react';
+import { signOut } from '@/auth';
+import BookList from '@/components/shared/BookList';
+import { db } from '@/database/drizzle';
+import { books } from '@/database/schema';
+import { desc } from 'drizzle-orm';
+import { IBook } from '@/types';
 
-const Page = () => {
+const Page = async () => {
+  const latestBooks = (await db
+    .select()
+    .from(books)
+    .limit(10)
+    .orderBy(desc(books.createdAt))) as IBook[];
   return (
     <>
       <form
@@ -15,11 +22,11 @@ const Page = () => {
         }}
         className='mb-10'
       >
-        <Button>Log out</Button>
+        <Button>Logout</Button>
       </form>
-      <BookList title='Borrowed books' books={sampleBooks} />
+
+      <BookList title='Borrowed Books' books={latestBooks.slice(1)} />
     </>
   );
 };
-
 export default Page;

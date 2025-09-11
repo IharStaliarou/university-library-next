@@ -1,6 +1,6 @@
 import { Session } from 'next-auth';
 
-export const Header = ({ session }: { session: Session }) => {
+const Header = ({ session }: { session: Session }) => {
   return (
     <header className='admin-header'>
       <div>
@@ -16,3 +16,5 @@ export const Header = ({ session }: { session: Session }) => {
     </header>
   );
 };
+
+export default Header;

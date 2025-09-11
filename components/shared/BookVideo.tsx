@@ -4,7 +4,7 @@ import { IKVideo, ImageKitProvider } from 'imagekitio-next';
 
 import config from '@/lib/config';
 
-export const BookVideo = ({ videoUrl }: { videoUrl: string }) => {
+const BookVideo = ({ videoUrl }: { videoUrl: string }) => {
   console.log('videoUrl', videoUrl);
   return (
     <ImageKitProvider
@@ -15,3 +15,4 @@ export const BookVideo = ({ videoUrl }: { videoUrl: string }) => {
     </ImageKitProvider>
   );
 };
+export default BookVideo;

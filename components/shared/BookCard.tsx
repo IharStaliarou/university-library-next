@@ -1,12 +1,12 @@
 import { IBook } from '@/types';
 import Link from 'next/link';
 import React from 'react';
-import { BookCover } from './BookCover';
+import BookCover from './BookCover';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 
-export const BookCard = ({
+const BookCard = ({
   id,
   title,
   genre,
@@ -48,3 +48,5 @@ export const BookCard = ({
     </li>
   );
 };
+
+export default BookCard;

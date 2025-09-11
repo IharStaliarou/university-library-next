@@ -1,14 +1,17 @@
-import { IBook } from '@/types';
+import { eq } from 'drizzle-orm';
 import Image from 'next/image';
-import React from 'react';
-import { Button } from '../ui/button';
-import { BookCover } from './BookCover';
+
+import { IBook } from '@/types';
+import BookCover from './BookCover';
+import BorrowBook from './BorrowBook';
+import { db } from '@/database/drizzle';
+import { users } from '@/database/schema';
 
 interface IProps extends IBook {
   userId: string;
 }
 
-export const BookOverview = ({
+const BookOverview = async ({
   id,
   title,
   author,
@@ -21,6 +24,20 @@ export const BookOverview = ({
   coverUrl,
   userId,
 }: IProps) => {
+  const [user] = await db
+    .select()
+    .from(users)
+    .where(eq(users.id, userId))
+    .limit(1);
+
+  const borrowingEligibility = {
+    isEligible: availableCopies > 0 && user?.status === 'APPROVED',
+    message:
+      availableCopies <= 0
+        ? 'Book is not available'
+        : 'You are not eligible to borrow this book',
+  };
+
   return (
     <section className='book-overview'>
       <div className='flex flex-1 flex-col gap-5'>
@@ -46,10 +63,18 @@ export const BookOverview = ({
           </p>
         </div>
         <p className='book-description'>{description}</p>
-        <Button className='book-overview_btn'>
-          <Image src='/icons/book.svg' alt='book' width={20} height={20} />
-          <p className='font-bebas-neue text-xl text-dark-100'>Borrow book</p>
-        </Button>
+
+        {!user ? (
+          <p>
+            Your profile if not approved yet. Please, wait a bit and try later.
+          </p>
+        ) : (
+          <BorrowBook
+            bookId={id}
+            userId={userId}
+            borrowingEligibility={borrowingEligibility}
+          />
+        )}
       </div>
       <div className='relative flex flex-1 justify-center'>
         <div className='relative'>
@@ -72,3 +97,5 @@ export const BookOverview = ({
     </section>
   );
 };
+
+export default BookOverview;

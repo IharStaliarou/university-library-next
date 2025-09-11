@@ -4,8 +4,7 @@ import { books } from './schema';
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import { config } from 'dotenv';
-
-config({ path: '.env' });
+config({ path: '.env.local' });
 
 const requiredEnvVars = [
   'DATABASE_URL',
@@ -21,7 +20,7 @@ requiredEnvVars.forEach((envVar) => {
 });
 
 const sql = neon(process.env.DATABASE_URL!);
-export const db = drizzle({ client: sql });
+export const db = drizzle(sql);
 
 const imageKit = new ImageKit({
   publicKey: process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY!,

@@ -19,15 +19,15 @@ import { IBook } from '@/types';
 import { bookSchema } from '@/lib/validation';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { FileUpload } from '@/components/shared/FileUpload';
+import FileUpload from '@/components/shared/FileUpload';
 import { createBook } from '@/lib/admin/action/book';
-import { ColorPicker } from '../ColorPicker';
+import ColorPicker from '../ColorPicker';
 
 interface IProps extends Partial<IBook> {
   type: 'create' | 'update';
 }
 
-export const BookForm = ({ type, ...book }: IProps) => {
+const BookForm = ({ type, ...book }: IProps) => {
   const router = useRouter();
   const form = useForm<z.infer<typeof bookSchema>>({
     resolver: zodResolver(bookSchema),
@@ -286,3 +286,5 @@ export const BookForm = ({ type, ...book }: IProps) => {
     </Form>
   );
 };
+
+export default BookForm;

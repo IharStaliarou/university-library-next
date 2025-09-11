@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { cn } from '@/lib/utils';
-import { BookCoverSvg } from './BookCoverSvg';
+import BookCoverSvg from './BookCoverSvg';
 import { IKImage } from 'imagekitio-next';
 import config from '@/lib/config';
 
@@ -24,7 +24,7 @@ interface IProps {
   className?: string;
 }
 
-export const BookCover = ({
+const BookCover = ({
   className,
   variant = 'regular',
   coverColor = '#012b48',
@@ -56,3 +56,5 @@ export const BookCover = ({
     </div>
   );
 };
+
+export default BookCover;

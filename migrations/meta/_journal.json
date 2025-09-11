@@ -15,6 +15,13 @@
       "when": 1757506577149,
       "tag": "0001_sharp_scarlet_spider",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1757578440078,
+      "tag": "0002_crazy_mandroid",
+      "breakpoints": true
     }
   ]
 }

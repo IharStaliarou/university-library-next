@@ -7,7 +7,7 @@ interface IProps {
   onPickerChange: (color: string) => void;
 }
 
-export const ColorPicker = ({ value, onPickerChange }: IProps) => {
+const ColorPicker = ({ value, onPickerChange }: IProps) => {
   return (
     <div className='relative'>
       <div className='flex flex-row items-center'>
@@ -22,3 +22,5 @@ export const ColorPicker = ({ value, onPickerChange }: IProps) => {
     </div>
   );
 };
+
+export default ColorPicker;

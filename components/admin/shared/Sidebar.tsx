@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export const Sidebar = ({ session }: { session: Session }) => {
+const Sidebar = ({ session }: { session: Session }) => {
   const pathname = usePathname();
   return (
     <div className='admin-sidebar'>
@@ -73,3 +73,5 @@ export const Sidebar = ({ session }: { session: Session }) => {
     </div>
   );
 };
+
+export default Sidebar;

@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { FIELD_NAMES, FIELD_TYPES } from '@/constants';
-import { FileUpload } from './FileUpload';
+import FileUpload from './FileUpload';
 
 interface IProps<T extends FieldValues> {
   schema: ZodType<T>;
@@ -34,7 +34,7 @@ interface IProps<T extends FieldValues> {
   type: 'SIGN_UP' | 'SIGN_IN';
 }
 
-export const AuthForm = <T extends FieldValues>({
+const AuthForm = <T extends FieldValues>({
   type,
   schema,
   defaultValues,
@@ -133,3 +133,5 @@ export const AuthForm = <T extends FieldValues>({
     </div>
   );
 };
+
+export default AuthForm;

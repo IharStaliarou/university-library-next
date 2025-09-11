@@ -1,5 +1,6 @@
 import { auth } from '@/auth';
-import { BookList, BookOverview } from '@/components/shared';
+import BookList from '@/components/shared/BookList';
+import BookOverview from '@/components/shared/BookOverview';
 import { db } from '@/database/drizzle';
 import { books } from '@/database/schema';
 import { IBook } from '@/types';

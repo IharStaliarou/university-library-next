@@ -1,6 +1,6 @@
 import { IBook } from '@/types';
 import React from 'react';
-import { BookCard } from './BookCard';
+import BookCard from './BookCard';
 
 interface IProps {
   title: string;
@@ -8,7 +8,7 @@ interface IProps {
   containerClassName?: string;
 }
 
-export const BookList = ({ title, books, containerClassName }: IProps) => {
+const BookList = ({ title, books, containerClassName }: IProps) => {
   if (books.length < 2) return;
   return (
     <section className={containerClassName}>
@@ -21,3 +21,5 @@ export const BookList = ({ title, books, containerClassName }: IProps) => {
     </section>
   );
 };
+
+export default BookList;

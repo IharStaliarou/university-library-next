@@ -44,7 +44,7 @@ interface IProps {
   value?: string;
 }
 
-export const FileUpload = ({
+const FileUpload = ({
   onFileChange,
   type,
   accept,
@@ -185,3 +185,5 @@ export const FileUpload = ({
     </ImageKitProvider>
   );
 };
+
+export default FileUpload;
